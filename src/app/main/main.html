@@ -1,29 +1,31 @@
-<div layout="row" lauout-fill ng-controller="MainCtrl" layout-align="center">
-<!--  <header ng-include="'components/navbar/navbar.html'"></header>-->
-    <md-content flex="30" flex-md="50">
-        <h2>My todos</h2>        
-        <form role="form" name="todoForm" ng-submit="addTodo()" layout="row" layout-sm="column" layout-align="center center" >
-            <md-input-container flex="80">
-                <label>Todo</label>
-                <input name="todo" ng-model="todo" placeholder="What needs to be done?" required md-maxlength="80" minlength="4" />
-                <div ng-messages="todoForm.todo.$error">
-                    <div ng-message="required">This is required!</div>
-                    <div ng-message="md-maxlength">That's too long!</div>
-                    <div ng-message="minlength">That's too short!</div>
-                </div>
-            </md-input-container>                    
-            <md-button class="md-raised md-primary" flex>Add</md-button>
-        </form>        
-        <md-list>            
-            <md-item ng-repeat="todo in todos">
-                <md-item-content>
-                    <md-input-container flex>
-                        <label>Todo</label>
-                        <input type="text" ng-model="todo">      
-                    </md-input-container>            
-                    <md-button class="md-raised md-warn" flex="10" ng-click="removeTodo($index)" aria-label="remove">X</md-button>
-                </md-item-content>
-            </md-item>
-        </md-list>
-    </md-content>
+<div layout="row" layout-fill ng-controller="MainCtrl" layout-align="center">
+    <div flex="50" layout="row" layout-wrap  layout-align="center">
+        <header ng-include="'components/navbar/navbar.html'" flex="100"></header>
+        <md-content flex="50">
+            <h2>My todos</h2>        
+            <form role="form" name="todoForm" ng-submit="addTodo()" layout="row" layout-sm="column" layout-align="center center" >
+                <md-input-container flex="80">
+                    <label>Todo</label>
+                    <input name="todo" ng-model="todo" placeholder="What needs to be done?" required md-maxlength="80" minlength="4" />
+                    <div ng-messages="todoForm.todo.$error">
+                        <div ng-message="required">This is required!</div>
+                        <div ng-message="md-maxlength">That's too long!</div>
+                        <div ng-message="minlength">That's too short!</div>
+                    </div>
+                </md-input-container>                    
+                <md-button class="md-raised md-primary" flex>Add</md-button>
+            </form>        
+            <md-list>            
+                <md-item ng-repeat="todo in todos">
+                    <md-item-content>
+                        <md-input-container flex>
+                            <label>Todo</label>
+                            <input type="text" ng-model="todo">      
+                        </md-input-container>            
+                        <md-button class="md-raised md-warn" flex="10" ng-click="removeTodo($index)" aria-label="remove">X</md-button>
+                    </md-item-content>
+                </md-item>
+            </md-list>
+        </md-content>
+        </div>
 </div>
